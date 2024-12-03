@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title> Student Information Management System</title>
+
+    <style>
+       body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 1em;
+            background-color: #f4f4f9;
+            color: #333;
+
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+            font-size: 2em;
+           
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 0.5em 0;
+            
+        }
+
+            nav a {
+                color: white;
+                padding: 1em;
+                text-decoration: none;
+                text-transform: uppercase;
+             
+            }
+
+                nav a:hover {
+                    background-color: #4CAF50;
+                    tab-size:inherit;
+                }
+
+        main {
+            padding: 2em;
+            text-align: center;
+        }
+
+        /*footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }*/
+    </style>
+</head>
+
+    <header>Student Information Management System</header>
+
+    <nav>
+        @Html.ActionLink("Administrators", "Index", "Administrators")
+        @Html.ActionLink("Users", "Index", "Users")
+        @Html.ActionLink("Teachers", "Index", "Teachers")
+        @Html.ActionLink("Courses", "Index", "Courses")
+        @Html.ActionLink("Students", "Index", "Students")
+        @Html.ActionLink("Transcripts", "Index", "Transcripts")
+        @Html.ActionLink("Enrollments", "Index", "Enrollments")
+        @Html.ActionLink("Grades", "Index", "Grades")
+    </nav>
+
+    <main>
+        <h2>Welcome to the Student Information Management System</h2>
+        <p>Manage your student information efficiently and effectively with our system.</p>
+    </main>
+
+    
+
+
+<body>
+
+</body>
+</html>

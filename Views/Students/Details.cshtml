@@ -1,0 +1,131 @@
+﻿@model student_Management.Models.Student
+
+@{
+    ViewBag.Title = "Student Details";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>@ViewBag.Title - Student Information Management System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #4A90E2;
+            margin-bottom: 40px;
+            font-size: 32px;
+        }
+
+        h4 {
+            color: #2b6cb0;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 26px;
+        }
+
+        .dl-horizontal dt {
+            font-weight: bold;
+            color: #4a5568;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .dl-horizontal dd {
+            margin-bottom: 20px;
+            color: #2d3748;
+            font-size: 16px;
+        }
+
+        .btn {
+            background-color: #4A90E2;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 16px;
+            margin-right: 10px;
+            width: 140px;
+            text-align: center;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+            .btn:hover {
+                background-color: #357ABD;
+            }
+
+        .form-actions {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        hr {
+            border: none;
+            height: 1px;
+            background-color: #e2e8f0;
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Student Details</h2>
+
+        <div>
+            <h4>Personal Information</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>@Html.DisplayNameFor(model => model.User.username)</dt>
+                <dd>@Html.DisplayFor(model => model.User.username)</dd>
+
+                <dt>@Html.DisplayNameFor(model => model.first_name)</dt>
+                <dd>@Html.DisplayFor(model => model.first_name)</dd>
+
+                <dt>@Html.DisplayNameFor(model => model.last_name)</dt>
+                <dd>@Html.DisplayFor(model => model.last_name)</dd>
+
+                <dt>@Html.DisplayNameFor(model => model.date_of_birth)</dt>
+                <dd>@Html.DisplayFor(model => model.date_of_birth)</dd>
+
+                <dt>@Html.DisplayNameFor(model => model.address)</dt>
+                <dd>@Html.DisplayFor(model => model.address)</dd>
+
+                <dt>@Html.DisplayNameFor(model => model.phone_number)</dt>
+                <dd>@Html.DisplayFor(model => model.phone_number)</dd>
+
+                <dt>@Html.DisplayNameFor(model => model.enrollment_date)</dt>
+                <dd>@Html.DisplayFor(model => model.enrollment_date)</dd>
+            </dl>
+        </div>
+        <div class="form-actions">
+            @Html.ActionLink("Edit", "Edit", new { id = Model.student_id }, new { @class = "btn" }) |
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn" })
+        </div>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+﻿@model student_Management.Models.Enrollment
+
+@{
+    ViewBag.Title = "Create Enrollment";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>@ViewBag.Title - Student Information Management System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #e3f2fd, #f4f4f9);
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 50px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #0d47a1;
+            margin-bottom: 30px;
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        h4 {
+            color: #1976d2;
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 24px;
+            font-weight: 500;
+        }
+
+        .form-horizontal {
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+            .form-group label {
+                font-weight: bold;
+                color: #37474f;
+            }
+
+            .form-group .form-control {
+                border-radius: 5px;
+                border: 1px solid #b0bec5;
+                padding: 10px;
+                font-size: 16px;
+                transition: border-color 0.3s;
+            }
+
+                .form-group .form-control:focus {
+                    border-color: #1976d2;
+                    box-shadow: 0 0 5px rgba(25, 118, 210, 0.2);
+                }
+
+        .btn {
+            background-color: #0d47a1;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            font-size: 16px;
+            margin-right: 10px;
+            width: 120px;
+        }
+
+            .btn:hover {
+                background-color: #0b3d91;
+                transform: translateY(-3px);
+            }
+
+        .btn-secondary {
+            background-color: #546e7a;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            font-size: 16px;
+            width: 120px;
+        }
+
+            .btn-secondary:hover {
+                background-color: #455a64;
+                transform: translateY(-3px);
+            }
+
+        hr {
+            border: none;
+            height: 1px;
+            background-color: #e0e0e0;
+            margin-bottom: 30px;
+        }
+
+        .text-danger {
+            color: #e53935;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Create Enrollment</h2>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h4>Enrollment Information</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.student_id, "Student", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("student_id", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.student_id, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.course_id, "Course", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("course_id", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.course_id, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.enrollment_date, "Enrollment Date", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.enrollment_date, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.enrollment_date, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10 text-center">
+                        <input type="submit" value="Create" class="btn" />
+                        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn-secondary" })
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+﻿@model student_Management.Models.Course
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>@ViewBag.Title - Student Information Management System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7fafc;
+            margin: 0;
+            padding: 0;
+            color: #2d3748;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 50px auto;
+            background: #ffffff;
+            padding: 30px;
+           /* border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);*/
+        }
+
+        h2 {
+            text-align: center;
+            color: #2b6cb0;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        h4 {
+            color: #718096;
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 24px;
+        }
+
+        .form-horizontal .form-group {
+            display: flex;
+            margin-bottom: 20px;
+            color: #2b6cb0;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            width: 100%;
+        }
+
+        .control-label {
+            font-weight: bold;
+            color: #2d3748;
+            flex: 1;
+            text-align: right;
+            margin-right: 15px;
+        }
+
+        .col-md-10 {
+            flex: 2;
+        }
+
+        .form-control {
+            border: 2px solid #cbd5e0;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+            .form-control:focus {
+                border-color: #2b6cb0;
+            }
+
+        .btn {
+            background-color: #2b6cb0;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 16px;
+            width: 100%;
+        }
+
+            .btn:hover {
+                background-color: #2c5282;
+            }
+
+        .btn-default {
+            background-color: #2b6cb0;
+            color: white;
+        }
+
+        .text-danger {
+            color: #e53e3e;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #2b6cb0;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            width: 100%;
+        }
+
+            .back-link{
+                color: #2c5282;
+                background-color: #2b6cb0;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+                font-size: 16px;
+                width: 40%;
+                
+            }
+
+        /* Additional styling for a modern look */
+        .form-group input[type="submit"] {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .container hr {
+            border: none;
+            height: 1px;
+           /* background-color: #e2e8f0;
+            margin-bottom: 30px;*/
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Create Course</h2>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h4>Enter Course Details</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.course_name, htmlAttributes: new { @class = "control-label" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.course_name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.course_name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.course_description, htmlAttributes: new { @class = "control-label" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.course_description, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.course_description, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.credits, htmlAttributes: new { @class = "control-label" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.credits, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.credits, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div>
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "back-link" })
+        </div>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>
